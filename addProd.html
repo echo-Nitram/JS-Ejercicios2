@@ -13,24 +13,44 @@
 
     <header>
         <div>
-            <a href="">Black</a>
-            <h2>Products</h2>
+            <a href="index.html">Black</a>
+            <h2>New Product</h2>
             <a href="">Filer</a>
         </div>
-        <input type="text" placeholder="Search.." style="padding: 0rem 2rem;">
     </header>
 
-    <main id="mainIndex">
+    <main class="addProdMain">
 
-        <h5>Bienvenido a su inventario</h5>
+        <div>
+            <div>
+                <label>Codigo</label>
+                <input type="text" id="Codigo">
+            </div>
+            <div>
+                <button type="button" id="BotonAgregar">ADD</button>
+            </div>
+        </div>
 
     </main>
 
     <nav>
-        <a href=""><div class="active">Lista</div></a>
-        <a href="addProd.html"><div>Agregar</div></a>
+        <a href="index.html"><div>Lista</div></a>
+        <a href=""><div class="active">Agregar</div></a>
         
     </nav>
+
+    <script>
+        let botonAgregar = document.getElementById("BotonAgregar");
+
+        botonAgregar.addEventListener("click", AgregarProdructo)
+
+        function AgregarProdructo(){
+            let codigo = document.getElementById("Codigo").value;
+            let nuevoProducto = new Producto(codigo);
+            listaDeProductos.push(nuevoProducto);
+            console.log(listaDeProductos.length)
+        }
+    </script>
 
     <script src="index.js"></script>
     <!-- JavaScript Bundle with Popper -->

@@ -19,7 +19,10 @@ class Producto {
 }
 
 let listaDeProductos = [];
-alert("Bienvenido a su invetario de productos");
+listaDeProductos.push(new Producto("ABD1234"));
+listaDeProductos.push(new Producto("MTP4321"));
+console.log(listaDeProductos.length);
+
 let opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar productos\n3- Eliminar producto\n4- Salir`));
 
 while (opcion != 4) {
@@ -47,7 +50,27 @@ while (opcion != 4) {
             text = "...";
     }
 
-    opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar producto\n3- Eliminar producto\n4- Salir`));
+     opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar producto\n3- Eliminar producto\n4- Salir`));
 
 }
+
+
+let mainIndex = document.getElementById("mainIndex");
+
+for (const producto of listaDeProductos){
+    let prodcutoDiv = document.createElement("div");
+    prodcutoDiv.innerHTML = "<p>Nombre: " + producto.VerCodigo() + "</p>";
+    mainIndex.appendChild(prodcutoDiv);
+}
+
+// let botonAgregar = document.getElementById("BotonAgregar");
+
+// botonAgregar.addEventListener("click", AgregarProdructo)
+
+// function AgregarProdructo(){
+//     let codigo = document.getElementById("Codigo").value;
+//     let nuevoProducto = new Producto(codigo);
+//     listaDeProductos.push(nuevoProducto);
+//     console.log(listaDeProductos.length)
+// }
 
