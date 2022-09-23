@@ -1,7 +1,7 @@
 class Producto {
 
     constructor(codigo) {
-        this.codigo = "#" + codigo;
+        this.codigo = codigo;
         this.color = "Niguno";
         this.foto = "Niguno";
     }
@@ -19,47 +19,47 @@ class Producto {
 }
 
 let listaDeProductos = [];
-listaDeProductos.push(new Producto("ABD1234"));
-listaDeProductos.push(new Producto("MTP4321"));
-console.log(listaDeProductos.length);
 
-let opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar productos\n3- Eliminar producto\n4- Salir`));
+let listaDeProductos1 = JSON.parse(sessionStorage.getItem("arregloDeProductos"));
 
-while (opcion != 4) {
+// let opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar productos\n3- Eliminar producto\n4- Salir`));
 
-    let cadena = "";
-    for (let i = 0; i < listaDeProductos.length; i++) {
-        cadena = cadena + `` + i + `-` + listaDeProductos[i].VerCodigo() + `\n`;
-    }
+// while (opcion != 4) {
 
-    switch (opcion) {
-        case 1:
-            let codigoProducto = prompt("Porfavor ingrese el codigo del produrcto");
-            let nuevoProducto = new Producto(codigoProducto);
-            listaDeProductos.push(nuevoProducto);
-            break;
-        case 2:
-            let productoEdi = prompt(`La cantidad de productos total es de: ` + listaDeProductos.length + `\n` + cadena + `\nSeleccione el producto del cual desea ver la informacion`);
-            alert(`Codigo: ` + listaDeProductos[productoEdi].VerCodigo() + `\nColor: ` + listaDeProductos[productoEdi].VerColor()+ `\nFoto: ` + listaDeProductos[productoEdi].VerFoto()); 
-            break;
-        case 3:
-            let productoEli = prompt(`Lista de productos:\n` + cadena + `\nSeleccione producto a eliminar`);
-            listaDeProductos.splice(productoEli, 1);
-            break;
-        default:
-            text = "...";
-    }
+//     let cadena = "";
+//     for (let i = 0; i < listaDeProductos.length; i++) {
+//         cadena = cadena + `` + i + `-` + listaDeProductos[i].VerCodigo() + `\n`;
+//     }
 
-     opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar producto\n3- Eliminar producto\n4- Salir`));
+//     switch (opcion) {
+//         case 1:
+//             let codigoProducto = prompt("Porfavor ingrese el codigo del produrcto");
+//             let nuevoProducto = new Producto(codigoProducto);
+//             listaDeProductos.push(nuevoProducto);
+//             break;
+//         case 2:
+//             let productoEdi = prompt(`La cantidad de productos total es de: ` + listaDeProductos.length + `\n` + cadena + `\nSeleccione el producto del cual desea ver la informacion`);
+//             alert(`Codigo: ` + listaDeProductos[productoEdi].VerCodigo() + `\nColor: ` + listaDeProductos[productoEdi].VerColor()+ `\nFoto: ` + listaDeProductos[productoEdi].VerFoto()); 
+//             break;
+//         case 3:
+//             let productoEli = prompt(`Lista de productos:\n` + cadena + `\nSeleccione producto a eliminar`);
+//             listaDeProductos.splice(productoEli, 1);
+//             break;
+//         default:
+//             text = "...";
+//     }
 
-}
+//      opcion = parseInt(prompt(`Opciones:\n1- Agregar producto\n2- Mostrar producto\n3- Eliminar producto\n4- Salir`));
+
+// }
 
 
 let mainIndex = document.getElementById("mainIndex");
 
-for (const producto of listaDeProductos){
+for (let i = 0; i < listaDeProductos1.length; i++){
+    let producto1 = new Producto(listaDeProductos1[0].codigo);
     let prodcutoDiv = document.createElement("div");
-    prodcutoDiv.innerHTML = "<p>Nombre: " + producto.VerCodigo() + "</p>";
+    prodcutoDiv.innerHTML = "<p>Nombre: " + producto1.VerCodigo() + "</p>";
     mainIndex.appendChild(prodcutoDiv);
 }
 
